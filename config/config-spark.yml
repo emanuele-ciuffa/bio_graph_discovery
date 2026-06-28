@@ -1,0 +1,28 @@
+spark:
+  master: "local[4]"
+  app_name: "bio_graph_discovery"
+  driver:
+    memory: "12g"
+    host: "127.0.0.1"
+  executor:
+    memory: "6g"
+    memoryOverhead: "2g"
+  python:
+    worker:
+      memory: "2g"
+  shuffle:
+    partitions: "32"
+  ui:
+    host: "127.0.0.1"
+    port: "4040"
+  broadcast:
+    timeout: "600"
+    auto:
+      join_threshold: "-1"
+
+jars:
+  graphframe: "../jars/graphframes-0.8.3-spark3.5-s_2.12.jar"
+  neo4j: "../jars/neo4j-connector-apache-spark_2.12-5.3.0_for_spark_3.jar"
+
+spark_checkpoint:
+  path: "../../spark_temp"

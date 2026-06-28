@@ -1,0 +1,167 @@
+2026-06-27 12:24:22,219 | bio_graph_discovery.main | INFO | Pipeline is starting...
+2026-06-27 12:24:22,224 | bio_graph_discovery.main | INFO | Selected organism: Homo sapiens
+2026-06-27 12:24:22,228 | bio_graph_discovery.main | INFO | Nodes path: C:/neo4j/neo4j-community-5.26.24/import/nodes.csv
+2026-06-27 12:24:22,230 | bio_graph_discovery.main | INFO | Edges path: C:/neo4j/neo4j-community-5.26.24/import/edges.csv
+2026-06-27 12:24:22,233 | bio_graph_discovery.main | INFO | Log path: ../logs/link_pred.log
+2026-06-27 12:24:22,235 | bio_graph_discovery.main | INFO | Log level: INFO
+2026-06-27 12:24:22,236 | bio_graph_discovery.main | INFO | Spark configuration is starting...
+2026-06-27 12:24:22,284 | bio_graph_discovery.main | INFO | Configured spark.master: local[4]
+2026-06-27 12:24:22,284 | bio_graph_discovery.main | INFO | Configured spark.app_name: bio_graph_discovery
+2026-06-27 12:24:22,285 | bio_graph_discovery.main | INFO | Configured spark.driver.memory: 12g
+2026-06-27 12:24:22,285 | bio_graph_discovery.main | INFO | Configured spark.executor.memory: 6g
+2026-06-27 12:24:22,285 | bio_graph_discovery.main | INFO | Configured spark.executor.memoryOverhead: 2g
+2026-06-27 12:24:22,285 | bio_graph_discovery.main | INFO | Configured spark.python.worker.memory: 2g
+2026-06-27 12:24:22,286 | bio_graph_discovery.main | INFO | Configured spark.driver.host: 127.0.0.1
+2026-06-27 12:24:22,286 | bio_graph_discovery.main | INFO | Configured spark.sql.shuffle.partitions: 32
+2026-06-27 12:24:22,286 | bio_graph_discovery.main | INFO | Configured spark.ui.host: 127.0.0.1
+2026-06-27 12:24:22,286 | bio_graph_discovery.main | INFO | Configured spark.ui.port: 4040
+2026-06-27 12:24:22,286 | bio_graph_discovery.main | INFO | Configured spark.sql.broadcastTimeout: 600
+2026-06-27 12:24:22,287 | bio_graph_discovery.main | INFO | Configured spark.sql.autoBroadcastJoinThreshold: -1
+2026-06-27 12:24:22,287 | bio_graph_discovery.main | INFO | Graphframe jar: ../jars/graphframes-0.8.3-spark3.5-s_2.12.jar
+2026-06-27 12:24:22,287 | bio_graph_discovery.main | INFO | Neo4j driver jar: ../jars/neo4j-connector-apache-spark_2.12-5.3.0_for_spark_3.jar
+2026-06-27 12:24:22,287 | bio_graph_discovery.main | INFO | Checkpoint dir: ../../spark_temp
+2026-06-27 12:24:27,205 | bio_graph_discovery.main | INFO | Spark configuration is complete
+2026-06-27 12:24:27,206 | bio_graph_discovery.main | INFO | Spark Version: 3.5.0
+2026-06-27 12:24:27,210 | bio_graph_discovery.main | INFO | Spark environment is using the following Scala version: version 2.12.18
+2026-06-27 12:24:27,210 | bio_graph_discovery.main | INFO | JAVA_HOME: C:\Program Files\Java\jdk-17.0.12
+2026-06-27 12:24:27,223 | bio_graph_discovery.main | INFO | Data preparation step enabled: True
+2026-06-27 12:24:27,224 | bio_graph_discovery.main | INFO | Graph import step enabled: True
+2026-06-27 12:24:27,224 | bio_graph_discovery.main | INFO | Graph analysis step enabled: True
+2026-06-27 12:24:27,225 | bio_graph_discovery.main | INFO | Link prediction step enabled: True
+2026-06-27 12:24:27,225 | bio_graph_discovery.main | INFO | Data preparation is starting...
+2026-06-27 12:24:27,242 | bio_graph_discovery.data_preparation | INFO | dataset path: C:/Users/emanu/Documents/university/Test_drug_discovery/data/CTD_chem_gene_ixns/CTD_chem_gene_ixns.csv
+2026-06-27 12:24:27,242 | bio_graph_discovery.data_preparation | INFO | dataset cols: ['ChemicalName', 'ChemicalID', 'CasRN', 'GeneSymbol', 'GeneID', 'GeneForms', 'Organism', 'OrganismID', 'Interaction', 'InteractionActions', 'PubMedIDs']
+2026-06-27 12:24:30,728 | bio_graph_discovery.data_preparation | INFO | Dataset count: 3034645
+2026-06-27 12:24:30,729 | bio_graph_discovery.data_preparation | INFO | Starting Data Preparation...
+2026-06-27 12:24:30,729 | bio_graph_discovery.data_preparation | INFO | Starting filtering organism
+2026-06-27 12:24:30,730 | bio_graph_discovery.data_preparation | INFO | Selected organism (species): 'Homo sapiens'
+2026-06-27 12:24:32,603 | bio_graph_discovery.data_preparation | INFO | Dataset filter by organism count: 1305255
+2026-06-27 12:24:32,603 | bio_graph_discovery.data_preparation | INFO | Starting filtering gene form
+2026-06-27 12:24:32,606 | bio_graph_discovery.data_preparation | INFO | Selected gene form: 'protein'
+2026-06-27 12:24:33,973 | bio_graph_discovery.data_preparation | INFO | Dataset filter by organism and gene form count: 419233
+2026-06-27 12:24:33,974 | bio_graph_discovery.data_preparation | WARNING | If gene form = protein then variants will be removed
+2026-06-27 12:24:35,554 | bio_graph_discovery.data_preparation | INFO | Dataset filter by only canonical proteins count: 411344
+2026-06-27 12:24:35,597 | bio_graph_discovery.data_preparation | INFO | Starting generate semantic triplets from interaction descriptions
+2026-06-27 12:25:01,128 | bio_graph_discovery.data_preparation | INFO | Triplets extraction has generated 2037723 records
+2026-06-27 12:25:01,392 | bio_graph_discovery.data_preparation | WARNING | Discarded records counts: 412987
+2026-06-27 12:25:01,392 | bio_graph_discovery.data_preparation | INFO | Try to recover unknown chemicals from vocab
+2026-06-27 12:25:02,456 | bio_graph_discovery.data_preparation | INFO | Trying to recover discarded chemicals from chemical vocab
+2026-06-27 12:25:02,535 | bio_graph_discovery.data_preparation | INFO | Trying to assign 'protein' labels to object having ' protein' suffix
+2026-06-27 12:25:02,535 | bio_graph_discovery.data_preparation | WARNING | Some recovered proteins could be discarded if no match with GeneID will be found during the mapping.
+2026-06-27 12:25:02,845 | bio_graph_discovery.data_preparation | INFO | Trying to recover discarded chemicals from chemical vocab
+2026-06-27 12:25:03,267 | bio_graph_discovery.data_preparation | INFO | Trying to recover discarded genes from gene vocab
+2026-06-27 12:25:03,299 | bio_graph_discovery.data_preparation | INFO | Only integral reactions will be considered
+2026-06-27 12:25:11,968 | bio_graph_discovery.data_preparation | INFO | Indices containing rows labeled as 'other' are 151182
+2026-06-27 12:25:14,179 | bio_graph_discovery.data_preparation | INFO | Discarding all records in which 'triple_object_type' matches with 'other'
+2026-06-27 12:25:27,128 | bio_graph_discovery.data_preparation | INFO | Validated Triplets count: 1142310 records
+2026-06-27 12:25:27,136 | bio_graph_discovery.data_preparation | INFO | Computing max reaction depth
+2026-06-27 12:25:27,753 | bio_graph_discovery.data_preparation | INFO | Max reaction depth is 4
+2026-06-27 12:25:27,753 | bio_graph_discovery.data_preparation | INFO | Handle unique IDs to prepare node generation
+2026-06-27 12:25:27,753 | bio_graph_discovery.data_preparation | INFO | Due to computed max_reaction_depth the iterations to update reaction ids will be 5
+2026-06-27 12:28:26,498 | bio_graph_discovery.data_preparation | INFO | Triplets dataframe will not be saved
+2026-06-27 12:28:26,498 | bio_graph_discovery.data_preparation | WARNING | If you want to save triplets dataframe, set 'triplets.save' property
+2026-06-27 12:28:26,499 | bio_graph_discovery.data_preparation | INFO | Compute output datasets for saving data preparation
+2026-06-27 12:28:29,363 | bio_graph_discovery.data_preparation | INFO | Saving nodes...
+2026-06-27 12:28:31,764 | bio_graph_discovery.data_preparation | INFO | Nodes records have been saved to the following path: C:/neo4j/neo4j-community-5.26.24/import\nodes_homo_sapiens.csv
+2026-06-27 12:28:31,764 | bio_graph_discovery.data_preparation | INFO | Saving relationships...
+2026-06-27 12:28:47,114 | bio_graph_discovery.data_preparation | INFO | Relationships records have been saved to the following path: C:/neo4j/neo4j-community-5.26.24/import\edges_homo_sapiens.csv
+2026-06-27 12:28:48,412 | bio_graph_discovery.data_preparation | INFO | Distinct Chemical counts: 9285
+2026-06-27 12:28:48,413 | bio_graph_discovery.data_preparation | INFO | Distinct Protein counts: 12803
+2026-06-27 12:28:48,413 | bio_graph_discovery.data_preparation | INFO | Distinct Reaction counts: 205990
+2026-06-27 12:28:48,421 | bio_graph_discovery.data_preparation | INFO | Saving Data Preparation Report
+2026-06-27 12:28:48,429 | bio_graph_discovery.data_preparation | INFO | Data Preparation Report has been saved to the following path: ../out/data_preparation_out\data_prep_report_homo_sapiens.csv
+2026-06-27 12:28:48,429 | bio_graph_discovery.data_preparation | INFO | Data Preparation has terminated
+2026-06-27 12:28:48,478 | bio_graph_discovery.main | INFO | Data preparation is finished.
+2026-06-27 12:28:48,479 | bio_graph_discovery.main | INFO | Graph import is starting...
+2026-06-27 12:28:48,494 | bio_graph_discovery.graph_import | INFO | Neo4j URI: bolt://localhost:7687
+2026-06-27 12:28:48,495 | bio_graph_discovery.graph_import | INFO | Neo4j User: neo4j
+2026-06-27 12:28:48,496 | bio_graph_discovery.graph_import | INFO | Overwriting database: True
+2026-06-27 12:28:48,496 | bio_graph_discovery.graph_import | WARNING | Database will be overwritten.
+2026-06-27 12:28:50,981 | bio_graph_discovery.graph_import | INFO | Graph has been cleared!
+2026-06-27 12:29:21,704 | bio_graph_discovery.graph_import | INFO | Attempt to ping Neo4j...
+2026-06-27 12:29:23,995 | bio_graph_discovery.graph_import | INFO | Neo4j connection has been established!
+2026-06-27 12:29:23,996 | bio_graph_discovery.graph_import | INFO | 
+--- Result from DB ---
+2026-06-27 12:29:23,996 | bio_graph_discovery.graph_import | INFO |                    message                           serve_time
+0  Connection succeceeded!  2026-06-27T10:29:23.779000000+00:00
+2026-06-27 12:29:26,205 | bio_graph_discovery.graph_import | INFO | Empty DB. A new graph will be created importing available data
+2026-06-27 12:29:26,206 | bio_graph_discovery.graph_import | INFO | Importing data related to the organism 'Homo sapiens'
+2026-06-27 12:29:26,206 | bio_graph_discovery.graph_import | INFO | Importing nodes file: nodes_homo_sapiens.csv
+2026-06-27 12:29:26,206 | bio_graph_discovery.graph_import | INFO | Importing edges file: edges_homo_sapiens.csv
+2026-06-27 12:29:26,207 | bio_graph_discovery.graph_import | INFO | Creating indexes and named constraints...
+2026-06-27 12:29:26,596 | bio_graph_discovery.graph_import | INFO | Waiting for indexes to go ONLINE...
+2026-06-27 12:29:26,659 | bio_graph_discovery.graph_import | INFO |   - Importing protein nodes...
+2026-06-27 12:29:29,125 | bio_graph_discovery.graph_import | INFO |   - Importing chemical nodes...
+2026-06-27 12:29:30,062 | bio_graph_discovery.graph_import | INFO |   - Importing reaction nodes...
+2026-06-27 12:29:35,953 | bio_graph_discovery.graph_import | INFO | Loading edges...
+2026-06-27 12:30:10,006 | bio_graph_discovery.graph_import | INFO | Cleaning up: Removing temporary 'Node' label from all nodes...
+2026-06-27 12:30:12,685 | bio_graph_discovery.graph_import | INFO |   - Successfully cleared all :Node labels.
+2026-06-27 12:30:12,686 | bio_graph_discovery.graph_import | INFO | Dropping temporary Node constraint...
+2026-06-27 12:30:12,727 | bio_graph_discovery.graph_import | INFO | --- Import Complete! ---
+2026-06-27 12:30:12,728 | bio_graph_discovery.graph_import | INFO | Nodes loaded from: nodes_homo_sapiens.csv
+2026-06-27 12:30:12,728 | bio_graph_discovery.graph_import | INFO | Edges loaded from: edges_homo_sapiens.csv
+2026-06-27 12:30:12,728 | bio_graph_discovery.graph_import | INFO | Temporary labels and indexes have been removed.
+2026-06-27 12:30:12,790 | bio_graph_discovery.graph_import | INFO | Data has been successfully imported.
+2026-06-27 12:30:12,791 | bio_graph_discovery.graph_import | INFO | You can access to the graph by browser: http://localhost:7474/browser/
+2026-06-27 12:30:12,791 | bio_graph_discovery.main | INFO | Graph import is finished.
+2026-06-27 12:30:15,021 | bio_graph_discovery.graph_analysis | INFO | Selected organism (species): 'Homo sapiens'
+2026-06-27 12:30:17,458 | bio_graph_discovery.graph_analysis | INFO | Starting to process Community Detection...
+2026-06-27 12:30:17,460 | bio_graph_discovery.graph_analysis | INFO | Ontological relationships will be excluded from the community detection process.
+2026-06-27 12:30:17,462 | bio_graph_discovery.graph_analysis | INFO | Max number of iteration for Label Propagation Algorithm (Community Detection): 5
+2026-06-27 12:30:22,348 | bio_graph_discovery.graph_analysis | INFO | Excluding ontological edges...
+2026-06-27 12:30:31,974 | bio_graph_discovery.graph_analysis | INFO | Generating 64-bit numeric IDs for GraphX engine compatibility...
+2026-06-27 12:30:33,954 | bio_graph_discovery.graph_analysis | INFO | Converting directed numeric edges to undirected...
+2026-06-27 12:30:36,676 | bio_graph_discovery.graph_analysis | INFO | Starting LPA Community Detection (Iterations: 5)...
+2026-06-27 12:31:13,871 | bio_graph_discovery.graph_analysis | INFO | Label Propagation Algorithm finished successfully. Processed 228078 nodes.
+2026-06-27 12:31:13,872 | bio_graph_discovery.graph_analysis | INFO | Community Detection completed
+2026-06-27 12:31:17,532 | bio_graph_discovery.graph_analysis | INFO | Community Detection results have been saved to the following path: ../out/graph_analysis_out\communities_homo_sapiens.csv
+2026-06-27 12:31:17,535 | bio_graph_discovery.graph_analysis | INFO | Degree Centrality will be computed
+2026-06-27 12:31:39,385 | bio_graph_discovery.graph_analysis | INFO | Degree Centrality results have been saved to the following path: ../out/graph_analysis_out\degree_centrality_homo_sapiens.csv
+2026-06-27 12:31:39,387 | bio_graph_discovery.graph_analysis | INFO | Connected Components analysis
+2026-06-27 12:33:04,533 | bio_graph_discovery.graph_analysis | INFO | Largest components have been saved to the following path: ../out/graph_analysis_out\connected_components_homo_sapiens.csv
+2026-06-27 12:33:09,302 | bio_graph_discovery.graph_analysis | INFO | Largest Component ID is: 0
+2026-06-27 12:33:09,302 | bio_graph_discovery.graph_analysis | INFO | Largest Component count is: 228018
+2026-06-27 12:33:09,303 | bio_graph_discovery.graph_analysis | INFO | Number of Connected Components: 16
+2026-06-27 12:33:09,860 | bio_graph_discovery.graph_analysis | INFO | Communities output will be overwritten with connected component association
+2026-06-27 12:33:14,727 | bio_graph_discovery.graph_analysis | INFO | Community Detection results have been saved to the following path: ../out/graph_analysis_out\communities_homo_sapiens.csv
+2026-06-27 12:33:14,735 | bio_graph_discovery.graph_analysis | INFO | Selected Target name for the Shortest Path: 'COX2 protein'
+2026-06-27 12:33:14,736 | bio_graph_discovery.graph_analysis | INFO | Retrieve target_id
+2026-06-27 12:33:16,862 | bio_graph_discovery.graph_analysis | INFO | Target id is protein_106188_459119
+2026-06-27 12:33:16,863 | bio_graph_discovery.graph_analysis | INFO | Shortest Path will be computed
+2026-06-27 12:35:00,567 | bio_graph_discovery.graph_analysis | INFO | Shortest Path results (for vertex 'protein_106188_459119') have been saved to the following path: ../out/graph_analysis_out\shortest_path__protein_106188_459119__homo_sapiens.csv
+2026-06-27 12:35:00,693 | bio_graph_discovery.graph_analysis | INFO | Node Count: 228078
+2026-06-27 12:35:00,694 | bio_graph_discovery.graph_analysis | INFO | Edge Count: 1026182
+2026-06-27 12:35:00,696 | bio_graph_discovery.graph_analysis | INFO | Graph analysis report path: ../out/graph_analysis_out\graph_analysis_report_homo_sapiens.csv
+2026-06-27 12:35:00,697 | bio_graph_discovery.graph_analysis | INFO | Saving results...
+2026-06-27 12:35:00,701 | bio_graph_discovery.graph_analysis | INFO | Graph analysis report has been saved to the following path: ../out/graph_analysis_out\graph_analysis_report_homo_sapiens.csv
+2026-06-27 12:35:00,752 | bio_graph_discovery.main | INFO | Graph analysis is finished
+2026-06-27 12:35:04,797 | bio_graph_discovery.main | INFO | Spark has been stopped
+2026-06-27 12:35:04,820 | bio_graph_discovery.link_prediction | INFO | gpu.enable = True
+2026-06-27 12:35:06,905 | bio_graph_discovery.link_prediction | INFO | Selected organism (species): 'Homo sapiens'
+2026-06-27 12:35:06,905 | bio_graph_discovery.link_prediction | INFO | Retrieving graph from neo4j
+2026-06-27 12:36:13,444 | bio_graph_discovery.link_prediction | INFO | Graph was correctly retrieved from neo4j
+2026-06-27 12:36:13,457 | bio_graph_discovery.link_prediction | INFO | Ontological relationships will be considered for training and inference
+2026-06-27 12:36:13,457 | bio_graph_discovery.link_prediction | INFO | Starting pre-processing...
+2026-06-27 12:36:23,225 | bio_graph_discovery.link_prediction | INFO | 'val_size' (validation size) set to 0.15' (15.0%): 15885404 interactions
+2026-06-27 12:36:23,225 | bio_graph_discovery.link_prediction | INFO | 'test_size' (test size) set to 0.1' (10.0%): 17650468 interactions
+2026-06-27 12:36:23,226 | bio_graph_discovery.link_prediction | INFO | 'training size: 0.75' (75.0%): 142967432 interactions
+2026-06-27 12:36:34,974 | bio_graph_discovery.link_prediction | INFO | Pre-processing has terminated
+2026-06-27 12:36:34,975 | bio_graph_discovery.link_prediction | INFO | Building model...
+2026-06-27 12:36:35,712 | bio_graph_discovery.link_prediction | INFO | Model has been built
+2026-06-27 12:36:35,712 | bio_graph_discovery.link_prediction | INFO | Starting Training: 228078 nodes, 831206 training edges for 50 epochs...
+2026-06-27 12:36:35,720 | bio_graph_discovery.link_prediction | INFO | target_val_auc: 0.85 | In case the validation >= this value, the training will stop
+2026-06-27 12:36:51,221 | bio_graph_discovery.link_prediction | INFO | Epoch 010 | Train Loss: 0.3360 | Val Loss: 0.5231 | Val AUC: 0.8955
+2026-06-27 12:36:51,221 | bio_graph_discovery.link_prediction | INFO |  [EARLY STOPPING] Target Validation AUC of 0.85 reached or exceeded! Stopping training early at epoch 10 with Val AUC: 0.8955
+2026-06-27 12:36:51,222 | bio_graph_discovery.link_prediction | INFO | Model has been trained
+2026-06-27 12:36:51,222 | bio_graph_discovery.link_prediction | INFO | Predicting data...
+2026-06-27 12:36:52,485 | bio_graph_discovery.link_prediction | INFO | Evaluating model performance metrics
+2026-06-27 12:36:52,532 | bio_graph_discovery.link_prediction | INFO | ROC-AUC Score:     0.8958
+2026-06-27 12:36:52,533 | bio_graph_discovery.link_prediction | INFO | Average Precision: 0.8864
+2026-06-27 12:36:52,563 | bio_graph_discovery.link_prediction | INFO | Generating and saving ROC curve plot...
+2026-06-27 12:36:53,039 | bio_graph_discovery.link_prediction | INFO | Metrics plot has been saved to ../out/link_prediction_out/metrics_roc_precision.png
+2026-06-27 12:36:54,032 | bio_graph_discovery.link_prediction | INFO | Saving prediction results...
+2026-06-27 12:36:55,392 | bio_graph_discovery.link_prediction | INFO | Prediction results have been written to the following path: ../out/link_prediction_out\predictions_homo_sapiens.csv
+2026-06-27 12:36:55,399 | bio_graph_discovery.link_prediction | INFO | Saving results...
+2026-06-27 12:36:55,405 | bio_graph_discovery.link_prediction | INFO | Link prediction report has been saved to the following path: ../out/link_prediction_out\link_prediction_report_path_homo_sapiens.csv
+2026-06-27 12:36:56,127 | bio_graph_discovery.main | INFO | Link prediction is finished
+2026-06-27 12:36:56,128 | bio_graph_discovery.main | INFO | Pipeline has terminated successfully.

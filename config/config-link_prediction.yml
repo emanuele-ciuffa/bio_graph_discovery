@@ -1,0 +1,40 @@
+# Model Architecture Parameters
+model:
+  channels: 8                # Dimension of the hidden node embeddings
+  ecc_conv_1:
+    kernel_network: [8]
+    activation: "relu"
+  ecc_conv_2:
+    kernel_network: [8]
+    activation: "relu"
+  ecc_conv_3:
+    kernel_network: [16]
+    activation: "relu"
+  dropout:
+    graph: 0.4
+    dense: 0.5
+  dense_layers:
+    layer_1_activation: "relu"
+    layer_2_activation: "relu"
+    final_activation: "sigmoid"
+
+# Training Hyperparameters
+training:
+  epochs: 50
+  learning_rate: 0.01
+  validation_size: 0.15    # Fraction of data for the validation set
+  test_size: 0.1          # Fraction of data for the test set
+  random_state: 42        # For reproducibility
+  ontological_penalty: 0.1 # The weight assigned to ontological relationships in loss
+  target_val_auc: 0.85
+  exclude_ontological_relationships: False # WARNING: Excluding ontological relationships you actually limit propagation
+
+output:
+  model_architecture_path: "../out/link_prediction_out/model_architecture.txt"
+  predictions_path: "../out/link_prediction_out/predictions.csv"
+  report_path: "../out/link_prediction_out/link_prediction_report_path.csv"
+  metrics_roc_precision_image_path: "../out/link_prediction_out/metrics_roc_precision.png"
+
+gpu:
+  enable: True
+

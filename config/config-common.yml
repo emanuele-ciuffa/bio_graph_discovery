@@ -1,0 +1,22 @@
+organism: "Homo sapiens"
+# available organisms are "Homo sapiens"  "Mus musculus"  "Rattus norvegicus"  "Gallus gallus"  "Platichthys flesus"
+
+log:
+  path: "../logs/link_pred.log"
+  level: "INFO"
+
+  # file names have to point to sub-directory 'import' of neo4j setup path (ex: C:\neo4j\neo4j-community-5.26.24\import)
+dataset:
+  graph:
+    nodes:
+      path: "C:/neo4j/neo4j-community-5.26.24/import/nodes.csv"
+    edges:
+      path: "C:/neo4j/neo4j-community-5.26.24/import/edges.csv"
+
+# Set the pipeline steps you want to enable (True/False)
+pipeline:
+  enable:
+    data_preparation: True
+    graph_import: True
+    graph_analysis: True
+    link_prediction: True

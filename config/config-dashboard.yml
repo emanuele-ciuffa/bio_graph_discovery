@@ -1,0 +1,31 @@
+connected_components:
+  first_level_view:
+    port: 8053
+    title: Connected Components
+  second_level_view: # second level view is about communities
+    port: 8054
+    title: Communities
+
+degree_centrality:
+  first_level_view:
+    port: 8051
+    title: Degree Centrality
+  second_level_view:
+    port: 8052
+    title: Connected Entities
+
+shortest_path:
+  first_level_view:
+    port: 8055
+    title: Shortest Paths found
+  second_level_view:
+    port: 8056
+    title: Shortest Path View
+
+link_prediction:
+  first_level_view:
+    port: 8057
+    title: Link Prediction
+  second_level_view:
+    port: 8058
+    title: Predicted Link

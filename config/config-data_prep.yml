@@ -1,0 +1,20 @@
+dataset:
+  chemical_protein:
+    path: "C:/Users/emanu/Documents/university/Test_drug_discovery/data/CTD_chem_gene_ixns/CTD_chem_gene_ixns.csv"
+
+gene_form: "protein"
+
+output:
+  report:
+    dataprep:
+      path: "../out/data_preparation_out/data_prep_report.csv"
+  triplets:
+    path: "C:/Users/emanu/OneDrive/Documenti/Univaq/msc applied data science/thesis/out/triplets"
+    save: False
+
+data_recovery:
+  chemicals:
+    path: "C:/Users/emanu/OneDrive/Documenti/Univaq/msc applied data science/thesis/test_dr_disc/data/CTD_chemicals/CTD_chemicals.csv"
+  genes:
+    path: "C:/Users/emanu/OneDrive/Documenti/Univaq/msc applied data science/thesis/test_dr_disc/data/CTD_genes/CTD_genes.csv"
+

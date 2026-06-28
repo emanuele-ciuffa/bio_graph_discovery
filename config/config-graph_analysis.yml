@@ -1,0 +1,23 @@
+report:
+  path: "../out/graph_analysis_out/graph_analysis_report.csv"
+
+degree_centrality:
+  enable: True
+  path: "../out/graph_analysis_out/degree_centrality.csv"
+
+connected_components:
+  enable: True
+  path: "../out/graph_analysis_out/connected_components.csv"
+
+community_detection:
+  enable: True
+  path: "../out/graph_analysis_out/communities.csv"
+  label_propagation_algorithm:
+    max_iter: 5
+  exclude_ontological_relationships: True # WARNING: Excluding ontological relationships you actually limit propagation
+
+shortest_path:
+  enable: True # Check the 'Ibuprofen' (chemical) and 'Aspirin' (chemical) as sources
+  target_name: "COX2 protein" #"AR protein" # In case you want to set a protein name, remind the suffix ' protein' (ex: 'AR protein')
+  max_iterations: 10 # max iterations = max number of hops. Tune the parameter considering the graph
+  path: "../out/graph_analysis_out/shortest_path__VERTEX_.csv"
